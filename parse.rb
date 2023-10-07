@@ -138,6 +138,7 @@ end
 
 if ARGV.length != 1
   STDERR.puts "Usage: ruby parse.rb <url>"
+  exit 1
 end
 
 url = ARGV[0]
