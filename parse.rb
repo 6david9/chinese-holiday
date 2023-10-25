@@ -35,7 +35,8 @@ end
 
 def parse_html(text)
   html = Nokogiri::HTML(text)
-  content = html.css('div.pages_content').first.text.strip
+  lines = html.css('div.pages_content p')
+  content = lines.map { |line| line.text.strip }.compact.join("\n")
   parse_holiday(content)
 end
 
@@ -109,8 +110,8 @@ def parse_holiday_line(year, line)
 end
 
 def parse_holiday(text)
-  puts text 
-  
+  puts text
+
   holiday_data = []
   year = nil
   
