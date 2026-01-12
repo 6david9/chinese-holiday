@@ -55,16 +55,6 @@ end
 def parse_holiday_line(year, line)
   result = {}
   
-  # 二、春节：1月21日至27日放假调休，共7天。1月28日（星期六）、1月29日（星期日）上班。
-  line.scan(/[一|二|三|四|五|六|七|八|九]、(.*?)\s*[:|：]\s*(\d+)月(\d+)日至(\d+)日放假/) do |holiday, month, start_day, end_day|
-    start_date = Date.new(year, month.to_i, start_day.to_i)
-    end_date = Date.new(year, month.to_i, end_day.to_i)
-    dates = dates_between(start_date, end_date)
-    
-    result["name"] = holiday
-    result["dates"] = dates
-  end
-  
   # 一、元旦：2022年12月31日至2023年1月2日放假调休，共3天。
   line.scan(/[一|二|三|四|五|六|七|八|九]、(.*?)\s*[:|：]\s*(\d+)年(\d+)月(\d+)日至(\d+)年(\d+)月(\d+)日放假/) do |holiday, start_year, start_month, start_day, end_year, end_month, end_day|
     start_date = Date.new(start_year.to_i, start_month.to_i, start_day.to_i)
@@ -76,7 +66,7 @@ def parse_holiday_line(year, line)
   end
   
   # 四、劳动节：4月29日至5月3日放假调休，共5天。4月23日（星期日）、5月6日（星期六）上班。
-  line.scan(/[一|二|三|四|五|六|七|八|九]、(.*?)\s*[:|：]\s*(\d+)月(\d+)日至(\d+)月(\d+)日放假/) do |holiday, start_month, start_day, end_month, end_day|
+  line.scan(/[一|二|三|四|五|六|七|八|九]、(.*?)\s*[:|：]\s*(\d+)月(\d+)日.*?至(\d+)月(\d+)日放假/) do |holiday, start_month, start_day, end_month, end_day|
     start_date = Date.new(year, start_month.to_i, start_day.to_i)
     end_date = Date.new(year, end_month.to_i, end_day.to_i)
     dates = dates_between(start_date, end_date)
@@ -85,25 +75,46 @@ def parse_holiday_line(year, line)
     result["dates"] = dates
   end
   
+  # 一、元旦：1月1日（周四）至3日（周六）放假调休，共3天。
+  # 二、春节：2月15日（农历腊月二十八、周日）至23日（农历正月初七、周一）放假调休，共9天。
+  # 三、清明节：4月4日（周六）至6日（周一）放假，共3天。
+  # 处理同月内日期范围，支持日期后的星期信息和省略月份的结束日期
+  line.scan(/[一|二|三|四|五|六|七|八|九]、(.*?)\s*[:|：]\s*(\d+)月(\d+)日.*?至(\d+)日.*?放假/) do |holiday, month, start_day, end_day|
+    start_date = Date.new(year, month.to_i, start_day.to_i)
+    end_date = Date.new(year, month.to_i, end_day.to_i)
+    dates = dates_between(start_date, end_date)
+    
+    result["name"] = holiday
+    result["dates"] = dates
+  end
+  
   # 三、清明节：4月5日放假，共1天。
-  line.scan(/[一|二|三|四|五|六|七|八|九]、(.*?)\s*[:|：]\s*(\d+)月(\d+)日放假/) do |holiday, month, day|
+  # 只匹配单日假期（不包含"至"的情况）
+  line.scan(/[一|二|三|四|五|六|七|八|九]、(.*?)\s*[:|：]\s*(\d+)月(\d+)日.*?放假(?!.*至)/) do |holiday, month, day|
+    # 检查是否已经匹配了日期范围（避免重复匹配）
+    next if result["name"] && result["dates"]
+    
     date = Date.new(year, month.to_i, day.to_i)
     result["name"] = holiday
     result["dates"] = [date.strftime("%Y%m%d")]
   end
   
   # 二、春节：1月21日至27日放假调休，共7天。1月28日（星期六）、1月29日（星期日）上班。
+  # 支持格式：1月4日（周日）上班 或 2月14日（周六）、2月28日（周六）上班
+  # 支持：星期X 或 周X 格式
   line.split("。").filter {|sent| sent.include? "上班"}.each do |sent|
     workdays = []
 
-    sent.scan(/(\d+)月(\d+)日（星期.+?）/) do |matches|      
+    # 匹配所有日期格式：X月X日（星期X）或 X月X日（周X）或 X月X日（农历...、星期X/周X）
+    # 使用非贪婪匹配，确保每个日期都能被正确提取
+    sent.scan(/(\d+)月(\d+)日（[^）]*?(?:星期|周)[^）]+?）/) do |matches|      
       month = matches[0]
       day = matches[1]
       
       date = Date.new(year, month.to_i, day.to_i)
       workdays << date.strftime("%Y%m%d")
     end
-    result["workdays"] = workdays
+    result["workdays"] = workdays if workdays.any?
   end
   
   result.empty? ? nil : result
