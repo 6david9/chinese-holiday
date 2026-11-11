@@ -6,6 +6,9 @@
   - '20190101'
   workdays:
   - '20191229'
+  festivals:
+  - name: 元旦
+    date: '20190101'
 - name: 春节
   dates:
   - '20190204'
@@ -18,18 +21,35 @@
   workdays:
   - '20190202'
   - '20190203'
+  festivals:
+  - name: 除夕
+    date: '20190204'
+  - name: 春节
+    date: '20190205'
 - name: 清明节
   dates:
   - '20190405'
+  festivals:
+  - name: 清明节
+    date: '20190405'
 - name: 劳动节
   dates:
   - '20190501'
+  festivals:
+  - name: 劳动节
+    date: '20190501'
 - name: 端午节
   dates:
   - '20190607'
+  festivals:
+  - name: 端午节
+    date: '20190607'
 - name: 中秋节
   dates:
   - '20190913'
+  festivals:
+  - name: 中秋节
+    date: '20190913'
 - name: 国庆节
   dates:
   - '20191001'
@@ -42,3 +62,6 @@
   workdays:
   - '20190929'
   - '20191012'
+  festivals:
+  - name: 国庆节
+    date: '20191001'

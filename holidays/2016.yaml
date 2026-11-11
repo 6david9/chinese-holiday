@@ -2,6 +2,9 @@
 - name: 元旦
   dates:
   - '20160101'
+  festivals:
+  - name: 元旦
+    date: '20160101'
 - name: 春节
   dates:
   - '20160207'
@@ -14,12 +17,23 @@
   workdays:
   - '20160206'
   - '20160214'
+  festivals:
+  - name: 除夕
+    date: '20160207'
+  - name: 春节
+    date: '20160208'
 - name: 清明节
   dates:
   - '20160404'
+  festivals:
+  - name: 清明节
+    date: '20160404'
 - name: 劳动节
   dates:
   - '20160501'
+  festivals:
+  - name: 劳动节
+    date: '20160501'
 - name: 端午节
   dates:
   - '20160609'
@@ -27,6 +41,9 @@
   - '20160611'
   workdays:
   - '20160612'
+  festivals:
+  - name: 端午节
+    date: '20160609'
 - name: 中秋节
   dates:
   - '20160915'
@@ -34,6 +51,9 @@
   - '20160917'
   workdays:
   - '20160918'
+  festivals:
+  - name: 中秋节
+    date: '20160915'
 - name: 国庆节
   dates:
   - '20161001'
@@ -46,3 +66,6 @@
   workdays:
   - '20161008'
   - '20161009'
+  festivals:
+  - name: 国庆节
+    date: '20161001'

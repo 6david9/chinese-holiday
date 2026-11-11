@@ -2,6 +2,9 @@
 - name: 元旦
   dates:
   - '20170101'
+  festivals:
+  - name: 元旦
+    date: '20170101'
 - name: 春节
   dates:
   - '20170127'
@@ -14,6 +17,11 @@
   workdays:
   - '20170122'
   - '20170204'
+  festivals:
+  - name: 除夕
+    date: '20170127'
+  - name: 春节
+    date: '20170128'
 - name: 清明节
   dates:
   - '20170402'
@@ -21,9 +29,15 @@
   - '20170404'
   workdays:
   - '20170401'
+  festivals:
+  - name: 清明节
+    date: '20170404'
 - name: 劳动节
   dates:
   - '20170501'
+  festivals:
+  - name: 劳动节
+    date: '20170501'
 - name: 端午节
   dates:
   - '20170528'
@@ -31,6 +45,9 @@
   - '20170530'
   workdays:
   - '20170527'
+  festivals:
+  - name: 端午节
+    date: '20170530'
 - name: 中秋节、国庆节
   dates:
   - '20171001'
@@ -43,3 +60,8 @@
   - '20171008'
   workdays:
   - '20170930'
+  festivals:
+  - name: 国庆节
+    date: '20171001'
+  - name: 中秋节
+    date: '20171004'

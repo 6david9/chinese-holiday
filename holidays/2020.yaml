@@ -1,4 +1,10 @@
 ---
+- name: 元旦
+  dates:
+  - '20200101'
+  festivals:
+  - name: 元旦
+    date: '20200101'
 - name: 春节
   dates:
   - '20200124'
@@ -11,11 +17,19 @@
   workdays:
   - '20200119'
   - '20200201'
+  festivals:
+  - name: 除夕
+    date: '20200124'
+  - name: 春节
+    date: '20200125'
 - name: 清明节
   dates:
   - '20200404'
   - '20200405'
   - '20200406'
+  festivals:
+  - name: 清明节
+    date: '20200404'
 - name: 劳动节
   dates:
   - '20200501'
@@ -26,6 +40,9 @@
   workdays:
   - '20200426'
   - '20200509'
+  festivals:
+  - name: 劳动节
+    date: '20200501'
 - name: 端午节
   dates:
   - '20200625'
@@ -33,7 +50,10 @@
   - '20200627'
   workdays:
   - '20200628'
-- name: 国庆节、中秋节
+  festivals:
+  - name: 端午节
+    date: '20200625'
+- name: 国庆节
   dates:
   - '20201001'
   - '20201002'
@@ -46,3 +66,8 @@
   workdays:
   - '20200927'
   - '20201010'
+  festivals:
+  - name: 国庆节
+    date: '20201001'
+  - name: 中秋节
+    date: '20201001'

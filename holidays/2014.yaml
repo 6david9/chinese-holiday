@@ -2,6 +2,9 @@
 - name: 元旦
   dates:
   - '20140101'
+  festivals:
+  - name: 元旦
+    date: '20140101'
 - name: 春节
   dates:
   - '20140131'
@@ -14,9 +17,15 @@
   workdays:
   - '20140126'
   - '20140208'
+  festivals:
+  - name: 春节
+    date: '20140131'
 - name: 清明节
   dates:
   - '20140405'
+  festivals:
+  - name: 清明节
+    date: '20140405'
 - name: 劳动节
   dates:
   - '20140501'
@@ -24,12 +33,21 @@
   - '20140503'
   workdays:
   - '20140504'
+  festivals:
+  - name: 劳动节
+    date: '20140501'
 - name: 端午节
   dates:
   - '20140602'
+  festivals:
+  - name: 端午节
+    date: '20140602'
 - name: 中秋节
   dates:
   - '20140908'
+  festivals:
+  - name: 中秋节
+    date: '20140908'
 - name: 国庆节
   dates:
   - '20141001'
@@ -42,3 +60,6 @@
   workdays:
   - '20140928'
   - '20141011'
+  festivals:
+  - name: 国庆节
+    date: '20141001'

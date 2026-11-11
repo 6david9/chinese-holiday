@@ -2,6 +2,9 @@
 - name: 元旦
   dates:
   - '20180101'
+  festivals:
+  - name: 元旦
+    date: '20180101'
 - name: 春节
   dates:
   - '20180215'
@@ -14,6 +17,11 @@
   workdays:
   - '20180211'
   - '20180224'
+  festivals:
+  - name: 除夕
+    date: '20180215'
+  - name: 春节
+    date: '20180216'
 - name: 清明节
   dates:
   - '20180405'
@@ -21,6 +29,9 @@
   - '20180407'
   workdays:
   - '20180408'
+  festivals:
+  - name: 清明节
+    date: '20180405'
 - name: 劳动节
   dates:
   - '20180429'
@@ -28,12 +39,21 @@
   - '20180501'
   workdays:
   - '20180428'
+  festivals:
+  - name: 劳动节
+    date: '20180501'
 - name: 端午节
   dates:
   - '20180618'
+  festivals:
+  - name: 端午节
+    date: '20180618'
 - name: 中秋节
   dates:
   - '20180924'
+  festivals:
+  - name: 中秋节
+    date: '20180924'
 - name: 国庆节
   dates:
   - '20181001'
@@ -46,3 +66,6 @@
   workdays:
   - '20180929'
   - '20180930'
+  festivals:
+  - name: 国庆节
+    date: '20181001'

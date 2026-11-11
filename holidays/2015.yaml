@@ -6,6 +6,9 @@
   - '20150103'
   workdays:
   - '20150104'
+  festivals:
+  - name: 元旦
+    date: '20150101'
 - name: 春节
   dates:
   - '20150218'
@@ -18,18 +21,35 @@
   workdays:
   - '20150215'
   - '20150228'
+  festivals:
+  - name: 除夕
+    date: '20150218'
+  - name: 春节
+    date: '20150219'
 - name: 清明节
   dates:
   - '20150405'
+  festivals:
+  - name: 清明节
+    date: '20150405'
 - name: 劳动节
   dates:
   - '20150501'
+  festivals:
+  - name: 劳动节
+    date: '20150501'
 - name: 端午节
   dates:
   - '20150620'
+  festivals:
+  - name: 端午节
+    date: '20150620'
 - name: 中秋节
   dates:
   - '20150927'
+  festivals:
+  - name: 中秋节
+    date: '20150927'
 - name: 国庆节
   dates:
   - '20151001'
@@ -41,3 +61,6 @@
   - '20151007'
   workdays:
   - '20151010'
+  festivals:
+  - name: 国庆节
+    date: '20151001'
